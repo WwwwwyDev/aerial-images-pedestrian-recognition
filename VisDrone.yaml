@@ -16,7 +16,7 @@ test: images/test # test-dev images (optional) 1610 images
 
 # Classes
 names:
-  1: people
+  0: people
 
 # Download script/URL (optional) ---------------------------------------------------------------------------------------
 download: |
@@ -50,9 +50,9 @@ download: |
 
           with open(f, encoding="utf-8") as file:
               for row in [x.split(",") for x in file.read().strip().splitlines()]:
-                  if row[4] != "0":  # Skip ignored regions
+                  if row[4] == "2":  # Skip ignored regions
                       x, y, w, h = map(int, row[:4])
-                      cls = int(row[5]) - 1
+                      cls = 0
                       # Convert to YOLO format
                       x_center, y_center = (x + w / 2) * dw, (y + h / 2) * dh
                       w_norm, h_norm = w * dw, h * dh
