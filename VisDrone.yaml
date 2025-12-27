@@ -50,7 +50,7 @@ download: |
 
           with open(f, encoding="utf-8") as file:
               for row in [x.split(",") for x in file.read().strip().splitlines()]:
-                  if row[4] == "2":  # Skip ignored regions
+                  if row[4] != "0" and row[5] == "2":  # Skip ignored regions
                       x, y, w, h = map(int, row[:4])
                       cls = 0
                       # Convert to YOLO format
