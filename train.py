@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import requests
 # Load a model
-model = YOLO("yolo12l.pt")  # load a pretrained model (recommended for training)
+model = YOLO("yolo12x.pt")  # load a pretrained model (recommended for training)
 
 # Train the model
 results = model.train(data="VisDrone.yaml", epochs=100, imgsz=640)
