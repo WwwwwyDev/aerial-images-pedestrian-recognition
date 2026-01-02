@@ -1,11 +1,11 @@
 from ultralytics import YOLO
 import requests
 # Load a model
-model = YOLO("yolo11n.pt")  # load a pretrained model (recommended for training)
+model = YOLO("yolo12x.pt")  # load a pretrained model (recommended for training)
 
 # Train the model
 try:
-    results = model.train(data="VisDrone.yaml", epochs=100, imgsz=640)
+    results = model.train(data="VisDrone.yaml", epochs=100, imgsz=640, batch=8)
 finally:
     url = 'https://xn-b.suanjiayun.com:4333/container/api/projects/67fd13f6e2946e9a0ea9615a/instances/694e33a369d977df35c92a4c/67fd13f6e2946e9a0ea9615c/shutDown'
     headers = {
